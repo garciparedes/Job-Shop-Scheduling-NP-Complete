@@ -50,12 +50,39 @@
 			Job Shop Scheduling es un problema de optimización que se estudia en Ciencias de la Computación e Investigación de Operaciones. Ahora describiremos el problema y el objetivo que se pretende conseguir:
 			
 			\paragraph{}
-			Supongamos que tenemos $n$ trabajos a realizar, los cuales denotamos como $J_{i}, i \in (1,n)$ cada uno de los cuales de distinta duración. También tenemos $m$ máquinas idénticas con las que realizar los trabajos.
-			
+			Supongamos que tenemos $n$ trabajos a realizar, los cuales denotamos como $J_{i}$ tal que $1 \leq i \leq n$ cada uno de los cuales de distinta duración. También tenemos $r$ máquinas con las que realizar los trabajos que denotaremos por $M_{j}$ tal que $1 \leq j \leq r$. Cada una de estas es la encargada de realizar una tarea concreta necesaria para finalizar cada uno de los trabajos. A cada una de estas tareas las denotaremos por  $O_{j}{i}$ que representa la tarea que se debe realizar en la máquina  $M_{j}$ del trabajo $J_{i}$.
 			\paragraph{}
-			El objetivo será tratar de minimizar al máximo posible el tiempo necesario para completar todas las tareas.
+			En Job Shop Scheduling el orden de las tareas necesarias para completar el i-ésimo trabajo importa y no se puede modificar.
+			 
+			\paragraph{}
+			El objetivo será tratar de minimizar al máximo posible el tiempo necesario para completar todas las tareas. Para ello trataremos el problema como de decisión, es decir, buscaremos la respuesta la siguiente pregunta:  
+			\newline
+			{ \bf ¿Se pueden resolver los $i$ trabajos a partir de las $j$ máquinas en un tiempo menor o igual que $r$?}
+			
+		\section{Reducción}
+		
+			\paragraph{}
+			Para demostrar que el problema Job Shop Scheduling pertenece a la clase NP-Complete nos basaremos en unos problemas cuya pertenencia a dicha clase ya está demostrada, por lo cual nos bastará demostrar que JobShop se puede reducir a alguno de estos:
+			
+%			\paragraph{}
+%			{\bf Partición}: es un problema NP-completo, que visto como un problema de decisión, consiste en decidir si, dado un multiconjunto (conjunto en el cual cada miembro del mismo tiene asociada una multiplicidad) de números enteros, puede éste ser particionado en dos "mitades" tal que sumando los elementos de cada una, ambas den como resultado la misma suma.
+			
+			\subsection{3-Partición}
+
+				\paragraph{}
+				{\bf 3-Partición} es un problema NP-completo, que consiste en decidir si dado un multiconjunto  (conjunto en el cual cada miembro del mismo tiene asociada una multiplicidad) S de n = 3m enteros positivos, puede ser particionado en m subconjuntos S1, S2, …, Sm tal que la suma de sus elementos sea la misma.
+			
+				\paragraph{}
+				Lo interesante del problema 3-Partición es que sigue siendo NP-completo incluso cuando los enteros de S están acotados por un polinomio en n. En otras palabras, el problema permanece al conjunto de problemas NP-completo incluso cuando la representación de los números en el argumento de entrada es unaria (representación mediante la repetición de un único símbolo). Es decir, el problema de la 3-partición es NP-completo en sentido estricto o estrictamente NP-completo. Esta propiedad, y en la 3-partición en general, es útil en muchas simplificaciones donde los números están representados de forma natural en unario.
 	
-	
+				\paragraph{}
+				Este problema fue demostrado por primera vez por Garey y Johnson mediante una solución de búsqueda 3-dimensional.
+				
+%			\subsection{Flow Shop}
+			
+			
+			\subsection{Job Shop}
+
 	
 	\newpage
 
