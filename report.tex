@@ -45,19 +45,36 @@
 	\newpage
 	
 		\section{Introducción}
+		
+			\subsection{Definición del problema}
 			
-			\paragraph{}
-			Job Shop Scheduling es un problema de optimización que se estudia en Ciencias de la Computación e Investigación de Operaciones. Ahora describiremos el problema y el objetivo que se pretende conseguir:
+				\paragraph{}
+				Job Shop Scheduling es un problema de optimización que se estudia en Ciencias de la Computación e Investigación de Operaciones. Ahora describiremos el problema y el objetivo que se pretende conseguir:
 			
-			\paragraph{}
-			Supongamos que tenemos $n$ trabajos a realizar, los cuales denotamos como $J_{i}$ tal que $1 \leq i \leq n$ cada uno de los cuales de distinta duración. También tenemos $r$ máquinas con las que realizar los trabajos que denotaremos por $M_{j}$ tal que $1 \leq j \leq r$. Cada una de estas es la encargada de realizar una tarea concreta necesaria para finalizar cada uno de los trabajos. A cada una de estas tareas las denotaremos por  $O_{j}{i}$ que representa la tarea que se debe realizar en la máquina  $M_{j}$ del trabajo $J_{i}$.
-			\paragraph{}
-			En Job Shop Scheduling el orden de las tareas necesarias para completar el i-ésimo trabajo importa y no se puede modificar.
+				\paragraph{}
+				Supongamos que tenemos $n$ trabajos a realizar, los cuales denotamos como $J_{i}$ tal que $1 \leq i \leq n$ cada uno de los cuales de distinta duración. También tenemos $r$ máquinas con las que realizar los trabajos que denotaremos por $M_{j}$ tal que $1 \leq j \leq r$. Cada una de estas es la encargada de realizar una operación concreta necesaria para finalizar cada uno de los trabajos. A cada una de estas operaciones las denotaremos por  $O_{j}{i}$ que representa la operación que se debe realizar en la máquina  $M_{j}$ del trabajo $J_{i}$.
+				\paragraph{}
+				En Job Shop Scheduling el orden de las operaciones necesarias para completar el i-ésimo trabajo importa y no se puede modificar.
 			 
-			\paragraph{}
-			El objetivo será tratar de minimizar al máximo posible el tiempo necesario para completar todas las tareas. Para ello trataremos el problema como de decisión, es decir, buscaremos la respuesta la siguiente pregunta:  
-			\newline
-			{ \bf ¿Se pueden resolver los $i$ trabajos a partir de las $j$ máquinas en un tiempo menor o igual que $r$?}
+				\paragraph{}
+				El objetivo será tratar de minimizar al máximo posible el tiempo necesario para completar todas las operaciones. Para ello trataremos el problema como de decisión, es decir, buscaremos la respuesta la siguiente pregunta:  
+				\newline
+				{ \bf ¿Se pueden resolver los $i$ trabajos a partir de las $j$ máquinas en un tiempo menor o igual que $r$?}
+				
+			\subsection{Open Shop, Job Shop y Flow Shop}
+			
+				\paragraph{}
+				Estos problemas tres problemas son muy similares entre si, ya que todos están referidos a la planificación de trabajos en más de una máquina.
+				
+				\begin{itemize}
+				
+					\item {\bf Open Shop}: El orden de realización de las operaciones {\bf no} importa.
+					
+					\item {\bf Job Shop}: El orden de realización de las operaciones importa.
+					
+					\item {\bf Flow Shop}: Cada trabajo tiene exactamente una operación por cada máquina, y todos los trabajos siguen el mismo orden de operaciones.
+					
+				\end{itemize}
 			
 		\section{Reducción}
 		
