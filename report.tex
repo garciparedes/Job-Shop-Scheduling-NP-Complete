@@ -75,7 +75,10 @@
 					\item {\bf Flow Shop}: Cada trabajo tiene exactamente una operación por cada máquina, y todos los trabajos siguen el mismo orden de operaciones.
 					
 				\end{itemize}
-			
+				
+			\paragraph{}
+			Hoy en día Job Shop Scheduling es presentado como un problema online, lo que quiere decir que cuando le llega un nuevo trabajo, el algoritmo debe devolver una decisión antes de conocer el próximo trabajo. A pesar de que la formulación actual sea como un problema online para el análisis de reducción no se tendrá en cuenta este caso, es decir, supondremos que conocemos a priori todos los trabajos que planificar (problema offline).
+					
 		\section{Reducción}
 		
 			\paragraph{}
@@ -87,20 +90,21 @@
 %			\paragraph{}
 %			{\bf Partición}: es un problema NP-completo, que visto como un problema de decisión, consiste en decidir si, dado un multiconjunto (conjunto en el cual cada miembro del mismo tiene asociada una multiplicidad) de números enteros, puede éste ser particionado en dos "mitades" tal que sumando los elementos de cada una, ambas den como resultado la misma suma.
 			
-			\subsection{3-Partición}
+			\subsection{Partición}
 
 				\paragraph{}
-				{\bf 3-Partición} es un problema NP-completo, que consiste en decidir si dado un multiconjunto  (conjunto en el cual cada miembro del mismo tiene asociada una multiplicidad) S de n = 3m enteros positivos, puede ser particionado en m subconjuntos S1, S2, …, Sm tal que la suma de sus elementos sea la misma.
+				{\bf Partición} es un problema NP-completo, que visto como un problema de decisión, consiste en decidir si, dado un multiconjunto (conjunto en el cual cada miembro del mismo tiene asociada una multiplicidad) de números enteros, puede éste ser particionado en dos "mitades" tal que sumando los elementos de cada una, ambas den como resultado la misma suma.
 			
 				\paragraph{}
-				Lo interesante del problema 3-Partición es que sigue siendo NP-completo incluso cuando los enteros de S están acotados por un polinomio en n. En otras palabras, el problema permanece al conjunto de problemas NP-completo incluso cuando la representación de los números en el argumento de entrada es unaria (representación mediante la repetición de un único símbolo). Es decir, el problema de la 3-partición es NP-completo en sentido estricto o estrictamente NP-completo. Esta propiedad, y en la 3-partición en general, es útil en muchas simplificaciones donde los números están representados de forma natural en unario.
-	
-				\paragraph{}
-				Este problema fue demostrado por primera vez por Garey y Johnson mediante una solución de búsqueda 3-dimensional.
+				Más precisamente, dado un multiconjunto S de enteros: ¿existe alguna forma de particionar S en dos subconjuntos S1 y S2, tal que la suma de los elementos en S1 sea igual que la suma de los elementos en S2?
 				
-%			\subsection{Flow Shop}
+				\paragraph{}
+				La solución con programación dinámica existente para resolver el problema de suma de subconjuntos, utilizando tiempo pseudo-polinómico, también es aplicable al problema de partición.
 			
-			
+				\paragraph{}
+				{\bf Tiempo Pseudo-Polinómico}:  un algoritmo numérico se ejecuta en tiempo pseudo-polinómico si su tiempo de ejecución es polinómico en el valor numérico de la entrada, pudiendo ser este valor exponencial en el largo de la entrada, es decir, en el número de dígitos que la conforman.  Los problemas NP-completos con algoritmos que se ejecutan en tiempo pseudo-polinómico se denominan NP-completos débiles. Un problema NP-completo se denomina NP-completo fuerte si se puede demostrar que no puede ser resuelto por algoritmos pseudo-polinómicos, salvo que se cumpla que P=NP.
+				
+				
 			\subsection{Job Shop}
 
 	
@@ -110,8 +114,7 @@
 
 			\begin{itemize}
 			
-				\item
-		
+				\item 		
 			\end{itemize}
 
 
