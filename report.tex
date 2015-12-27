@@ -103,9 +103,41 @@
 			
 				\paragraph{}
 				{\bf Tiempo Pseudo-Polinómico}:  un algoritmo numérico se ejecuta en tiempo pseudo-polinómico si su tiempo de ejecución es polinómico en el valor numérico de la entrada, pudiendo ser este valor exponencial en el largo de la entrada, es decir, en el número de dígitos que la conforman.  Los problemas NP-completos con algoritmos que se ejecutan en tiempo pseudo-polinómico se denominan NP-completos débiles. Un problema NP-completo se denomina NP-completo fuerte si se puede demostrar que no puede ser resuelto por algoritmos pseudo-polinómicos, salvo que se cumpla que P=NP.
+			
+			\subsection{3 - Partición}
+
+				\paragraph{}
+				{\bf 3-Partición} es un problema NP-completo, que consiste en decidir si dado un multiconjunto S de n = 3m enteros positivos, puede ser particionado en m subconjuntos S1, S2, …, Sm tal que la suma de sus elementos sea la misma.
+			
+				\paragraph{}
+				Lo interesante del problema 3-Partición es que sigue siendo NP-completo incluso cuando los enteros de S están acotados por un polinomio en n. En otras palabras, el problema permanece al conjunto de problemas NP-completo incluso cuando la representación de los números en el argumento de entrada es unaria (representación mediante la repetición de un único símbolo). Es decir, el problema de la 3-partición es NP-completo en sentido estricto o estrictamente NP-completo. Esta propiedad, y en la 3-partición en general, es útil en muchas simplificaciones donde los números están representados de forma natural en unario.
+	
+				\paragraph{}
+				Este problema fue demostrado por primera vez por Garey y Johnson mediante una solución de búsqueda 3-dimensional.
+		
+			\subsection{Problema de la Mochila}
+				
+				\paragraph{}
+				El problema de la mochila es un problema de optimización combinatoria, es decir, que busca la mejor solución entre un conjunto de posibles soluciones a un problema. Modela una situación análoga al llenar una mochila, incapaz de soportar más de un peso determinado, con todo o parte de un conjunto de objetos, cada uno con un peso y valor específicos. Los objetos colocados en la mochila deben maximizar el valor total sin exceder el peso máximo. Este problema pertenece a la clase NP-Complete como demostró  Richard Karp en 1972. Enunciado matemáticamente se puede expresar como: 
+				
+				\paragraph{}
+				Dados n enteros positivos denotados como $a_{i}$ tales que $1 < i < n$ y otro entero $b$, ¿existe un subconjunto $S \in A = \{1,...,n\} $ tal que $\sum_{i\in S}a_{i}= b$?
+				
 				
 				
 			\subsection{Job Shop}
+			
+				\paragraph{}
+				 Ya está demostrado que los casos particulares más simples pertenecen a P con crecimiento asintótico de $O(m^2)$ para 2 trabajos y m máquinas y $O(n logn)$ para n trabajos de no más de 2 operaciones cada uno y 2 máquinas. 
+				 
+				\paragraph{}
+				 Ahora demostraremos que este problema pertenece a la clase NP-Complete para los casos siguientes reduciéndolos al Problema de la Mochila, que ya conocemos que pertenece a la clase NP-Complete:
+				 \begin{itemize}
+				 	\item n trabajos de no más de 3 operaciones cada uno en 2 máquinas
+				 	\item n trabajos de no más de 2 operaciones cada uno en 3 máquinas
+				 \end {itemize}
+
+				\paragraph{}
 
 	
 	\newpage
