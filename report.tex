@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage{graphicx}
+\usepackage{amsmath}
 
 
 \usepackage{hyperref}
@@ -52,7 +53,7 @@
 				Job Shop Scheduling es un problema de optimización que se estudia en Ciencias de la Computación e Investigación de Operaciones. Ahora describiremos el problema y el objetivo que se pretende conseguir:
 			
 				\paragraph{}
-				Supongamos que tenemos $n$ trabajos a realizar, los cuales denotamos como $J_{i}$ tal que $1 \leq i \leq n$ cada uno de los cuales de distinta duración. También tenemos $r$ máquinas con las que realizar los trabajos que denotaremos por $M_{j}$ tal que $1 \leq j \leq r$. Cada una de estas es la encargada de realizar una operación concreta necesaria para finalizar cada uno de los trabajos. A cada una de estas operaciones las denotaremos por  $O_{j}{i}$ que representa la operación que se debe realizar en la máquina  $M_{j}$ del trabajo $J_{i}$.
+				Supongamos que tenemos $n$ trabajos a realizar, los cuales denotamos como $J_{i}$ tal que $1 \leq i \leq n$ cada uno de distinta duración. También tenemos $r$ máquinas con las que realizar los trabajos que denotaremos por $M_{j}$ tal que $1 \leq j \leq r$. Cada una de estas es la encargada de realizar una operación concreta necesaria para finalizar cada uno de los trabajos. A cada una de estas operaciones las denotaremos por  $O_{j}{i}$ que representa la operación que se debe realizar en la máquina  $M_{j}$ del trabajo $J_{i}$ y tienen un tiempo de procesamiento de $p_{ij}$. El orden de ejecución de las operaciones en las máquinas se designa como $v_{i}$.
 				\paragraph{}
 				En Job Shop Scheduling el orden de las operaciones necesarias para completar el i-ésimo trabajo importa y no se puede modificar.
 			 
@@ -121,7 +122,7 @@
 				El problema de la mochila es un problema de optimización combinatoria, es decir, que busca la mejor solución entre un conjunto de posibles soluciones a un problema. Modela una situación análoga al llenar una mochila, incapaz de soportar más de un peso determinado, con todo o parte de un conjunto de objetos, cada uno con un peso y valor específicos. Los objetos colocados en la mochila deben maximizar el valor total sin exceder el peso máximo. Este problema pertenece a la clase NP-Complete como demostró  Richard Karp en 1972. Enunciado matemáticamente se puede expresar como: 
 				
 				\paragraph{}
-				Dados n enteros positivos denotados como $a_{i}$ tales que $1 < i < n$ y otro entero $b$, ¿existe un subconjunto $S \in A = \{1,...,n\} $ tal que $\sum_{i\in S}a_{i}= b$?
+				Dados n enteros positivos denotados como $a_{i}$ tales que $1 < i < t$ y otro entero $b$, ¿existe un subconjunto $S \in T = \{1,...,t\} $ tal que $\sum_{i\in S}a_{i}= b$?
 				
 				
 				
@@ -132,14 +133,58 @@
 				 
 				\paragraph{}
 				 Ahora demostraremos que este problema pertenece a la clase NP-Complete para los casos siguientes reduciéndolos al Problema de la Mochila, que ya conocemos que pertenece a la clase NP-Complete:
-				 \begin{itemize}
-				 	\item n trabajos de no más de 3 operaciones cada uno en 2 máquinas
+				 \begin{enumerate}
+				  	\item n trabajos de no más de 3 operaciones cada uno en 2 máquinas
 				 	\item n trabajos de no más de 2 operaciones cada uno en 3 máquinas
-				 \end {itemize}
+				 \end {enumerate}
 
-				\paragraph{}
+				\paragraph{Reducción de 1:}
+				
+					\begin{gather}
+						n = t+1 \\
+						v_{i} = (M_{1}), p_{i1} = a_{i} (i \in T) \\
+						v_{n} = (M_{2}, M_{1}, M_{2}), p_{n1} = b,  p_{n2} = 1,  p_{n3} = A-b \\
+						y = A +1
+					\end{gather}
+			
+					Si el problema de la mochila tiene solución, entonces existe una planificación con tiempo total de ejecución igual a $y$, como se ilustra en la figura 1. Si el Problema de la Mochila no tiene solución entonces  $\sum_{i\in S}a_{i} - b = c \neq 0$ para cada  $S \in T$, por lo que tenemos un orden de procesamiento $( \{J_{i} | i \in S\},J_{n} , \{J_{i} | i \in T-S\})$ en $M_{i}$ que:
 
+					\begin{gather}
+						c > 0 \implies  TiempoTotal \geq \sum_{i\in S}p_{i1} + p_{n2} + p_{n3} = A + c + 1 > y\\ 
+						c < 0 \implies  TiempoTotal \geq  p_{n1} + p_{n2}  + \sum_{i\in T-S}p_{i1} = A - c + 1 > y
+					\end{gather}
+					
+					Con esto se muestra que el Problema de la Mochila tiene solución solo si \textit{ n trabajos de no más de 3 operaciones cada uno en 2 máquinas} tienen solución con valor menor o igual que y.
 	
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=75mm]{res/example1.png}
+					\end{figure}
+	
+				\paragraph{Reducción de 2:}
+
+					\begin{gather}
+						n = t + 2 \\
+						v_{i} = (M_{1}, M_{3}), p_{i1} = a_{i} (i \in T) \\
+						v_{n-1} = (M_{2}, M_{1}), p_{n-1,1} = b,  p_{n-1,2} = 2(A-b) \\
+						v_{n} = (M_{2}, M_{3}), p_{n1} = 2b,  p_{n2} = A-b \\
+						y = 2A
+					\end{gather}
+					
+					Si el problema de la mochila tiene solución, entonces existe una planificación con tiempo total de ejecución igual a $y$. Si el Problema de la Mochila no tiene solución entonces  $\sum_{i\in S}a_{i} - b = c \neq 0$ para cada  $S \in T$, por lo que tenemos un orden de procesamiento $( \{J_{i} | i \in S\},J_{n-1} , \{J_{i} | i \in T-S\})$ en $M_{i}$ que:
+
+					\begin{gather}
+						c > 0 \implies  TiempoTotal \geq \sum_{i\in S}p_{i1} + p_{n-1,1} + p_{n-1, 2} = 2A + c > y\\ 
+						c < 0 \implies  TiempoTotal \geq  min\{ \sum_{i\in S}p_{i1} +p_{n-1,1}+1,p_{n1} \}+ p_{n2}  + \sum_{i\in T-S}p_{i2} = 2A + 1 > y
+					\end{gather}
+					
+					lo que completa la prueba de equivalencia.
+					
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=75mm]{res/example2.png}
+					\end{figure}
+
 	\newpage
 
 		\section{Bibliografía}
