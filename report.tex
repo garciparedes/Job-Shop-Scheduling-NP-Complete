@@ -79,7 +79,8 @@
 			
 			\subsection{Grafo Disyuntivo}
 			
-				\paragraph{}				Una de las representaciones más claras y utilizadas para este tipo de problemas es el denominado grafo disyuntivo. Un grafo disyuntivo G = (V,C,D) contiene los siguientes elementos:
+				\paragraph{}
+				Una de las representaciones más claras y utilizadas para este tipo de problemas es el denominado grafo disyuntivo. Un grafo disyuntivo G = (V,C,D) contiene los siguientes elementos:
 	
 				\begin{itemize}
 				
@@ -101,6 +102,13 @@
 				
 			\paragraph{}
 			Hoy en día Job Shop Scheduling es presentado como un problema online, lo que quiere decir que cuando le llega un nuevo trabajo, el algoritmo debe devolver una decisión antes de conocer el próximo. A pesar de que la formulación actual sea como un problema online para el análisis de reducción no se tendrá en cuenta este caso, es decir, supondremos que conocemos a priori todos los trabajos que planificar (problema offline).
+		\section{Campos de Aplicación}
+		
+			\paragraph{}
+			Los campos de aplicación de este problema son muy diversos, pero todos ellos relacionados con la organización de tareas. Encontrar la planificación óptima de un conjunto de trabajos divisibles en sub-operaciones "modularizables" en un tiempo razonable mejoraría exponencialmente la productividad. Esto aplicado al mundo empresarial reduciría muchísimo lo costes.
+		
+			\paragraph{}
+			Un claro ejemplo de ello es la planificación de una lavandería, la cual ofrece distintos servicios como lavado, planchado, secado, arreglo de tejidos, etc. los cuales pueden ser combinados entre sí, pero deben mantener un cierto orden de realización. Los trabajos son las peticiones de los clientes, las cuales se realizan en las máquinas que hay en la lavandería. Si fuésemos capaces de encontrar la planificación de uso de las máquinas de forma óptima en un tiempo polinómico esto haría que una gran lavandería redujese tanto el tiempo como los costes de su proceso productivo.
 	
 		\section{Clases de Complejidad P y NP}
 		
@@ -130,15 +138,6 @@
 
 				\paragraph{Completitud de NP}
 				Para analizar la pregunta P = NP, resulta muy útil el concepto de completitud NP. De manera informal, los problemas de completitud NP son los problemas más "difíciles" en NP en el sentido de que ellos son los que son más probable no se encuentren en P. Problemas NP-difíciles son aquellos para los cuales cualquier problema en NP puede ser reducido en tiempo polinómico. Los problemas de completitud NP son aquellos problemas NP-difícil que se encuentran en NP. Por ejemplo, la versión de problema de decisión del problema del viajante es completamente NP. Así ningún caso de ningún problema en NP puede ser transformado mecánicamente en una parte del problema del vendedor viajero, en tiempo polinómico. Por lo tanto, si el problema del vendedor viajero estuviera contenido en P, entonces P = NP. El problema del vendedor viajero es uno de muchos problemas NP-completos. Si cualquier problema NP-completo se encuentra contenido en P, entonces se verificaría que P = NP. Desafortunadamente, se ha demostrado que muchos problemas importantes son NP-completos y no se conoce la existencia de ningún algoritmo rápido para ellos.
-
-
-		\section{Campos de Aplicación}
-		
-			\paragraph{}
-			Los campos de aplicación de este problema son muy diversos, pero todos ellos relacionados con la organización de tareas. Encontrar la planificación óptima de un conjunto de trabajos divisibles en sub-operaciones "modularizables" en un tiempo razonable mejoraría exponencialmente la productividad. Esto aplicado al mundo empresarial reduciría muchísimo lo costes.
-		
-			\paragraph{}
-			Un claro ejemplo de ello es la planificación de una lavandería, la cual ofrece distintos servicios como lavado, planchado, secado, arreglo de tejidos, etc. los cuales pueden ser combinados entre sí, pero deben mantener un cierto orden de realización. Los trabajos son las peticiones de los clientes, las cuales se realizan en las máquinas que hay en la lavandería. Si fuésemos capaces de encontrar la planificación de uso de las máquinas de forma óptima en un tiempo polinómico esto haría que una gran lavandería redujese tanto el tiempo como los costes de su proceso productivo.
 				
 		\section{Reducción}
 		
