@@ -76,10 +76,70 @@
 					\item {\bf Flow Shop}: Cada trabajo tiene exactamente una operación por cada máquina, y todos los trabajos siguen el mismo orden de operaciones.
 					
 				\end{itemize}
+			
+			\subsection{Grafo Disyuntivo}
+			
+				\paragraph{}				Una de las representaciones más claras y utilizadas para este tipo de problemas es el denominado grafo disyuntivo. Un grafo disyuntivo G = (V,C,D) contiene los siguientes elementos:
+	
+				\begin{itemize}
+				
+					\item Un conjunto V de nodos, cada uno de los cuales representa una operación, excepto dos de ellos, el nodo fuente y el nodo sumidero, que son nodos virtuales de duración 0 y representan el comienzo y el final del plan respectivamente.
+					
+					\item Aristas de precedencia C (conjunciones) correspondientes a las restricciones de precedencia. Son arcos dirigidos que unen operaciones correspondientes al mismo trabajo.
+					
+					\item Aristas de recurso D (disyunciones) correspondientes a las restricciones de re- curso. Son arcos no dirigidos que unen operaciones que se ejecutan en la misma máquina.
+					
+				\end{itemize}
+				
+				\paragraph{}
+				Cada operación puede empezar cuando haya terminado la ejecución de sus operaciones predecesoras (en caso de que existan). En un grafo disyuntivo, la dirección de las flechas marca las relaciones de precedencia, de forma que si aparece una flecha dirigida de la operación p a q, esto indica que p precede a q. Es por esto que en el caso de que existan ciclos en el grafo, la solución no es válida.
+				
+				\begin{figure}[H]
+						\centering
+						\includegraphics[width=120mm]{res/disjunctive.png}
+				\end{figure}
 				
 			\paragraph{}
-			Hoy en día Job Shop Scheduling es presentado como un problema online, lo que quiere decir que cuando le llega un nuevo trabajo, el algoritmo debe devolver una decisión antes de conocer el próximo trabajo. A pesar de que la formulación actual sea como un problema online para el análisis de reducción no se tendrá en cuenta este caso, es decir, supondremos que conocemos a priori todos los trabajos que planificar (problema offline).
-					
+			Hoy en día Job Shop Scheduling es presentado como un problema online, lo que quiere decir que cuando le llega un nuevo trabajo, el algoritmo debe devolver una decisión antes de conocer el próximo. A pesar de que la formulación actual sea como un problema online para el análisis de reducción no se tendrá en cuenta este caso, es decir, supondremos que conocemos a priori todos los trabajos que planificar (problema offline).
+	
+		\section{Clases de Complejidad P y NP}
+		
+			\paragraph{}
+			La relación entre las clases de complejidad P y NP es una pregunta que aún no se ha podido responder por la teoría de la complejidad computacional. En esencia, la pregunta ¿es P = NP ? significa: si es posible "verificar" rápidamente soluciones positivas a un problema del tipo SI/NO (donde "rápidamente" significa "en tiempo polinómico"), ¿es que entonces también se pueden "obtener" las respuestas rápidamente? Los recursos comúnmente estudiados en complejidad computacional son:
+
+			\begin{itemize}
+			
+				\item El tiempo: mediante una aproximación al número de pasos de ejecución que un algoritmo emplea para resolver un problema.
+			
+				\item El espacio: mediante una aproximación a la cantidad de memoria utilizada para resolver el problema.
+
+			\end{itemize}
+			
+			\paragraph{}
+			Los problemas se clasifican en conjuntos o clases de complejidad (L, NL, P, PCompleto, NP, NP-Completo, NP Duro...). Nosotros nos vamos a centrar en las clases P y NP.
+
+			\subsection{Clase P}
+			
+				\paragraph{}
+				P es conocido por contener muchos problemas naturales, incluyendo las versiones de decisión de programa lineal, cálculo del máximo común divisor, y encontrar una correspondencia máxima. Los algoritmos de tiempo polinómico son cerrados respecto a la composición. Intuitivamente, esto quiere decir que si uno escribe una función con un determinado tiempo polinómico y consideramos que las llamadas a esa misma función son constantes y, de tiempo polinómico, entonces el algoritmo completo es de tiempo polinómico. Esto es uno de los motivos principales por los que P se considera una máquina independiente; algunos rasgos de esta máquina, como el acceso aleatorio, es que puede calcular en tiempo polinómico el tiempo polinómico del algoritmo principal reduciéndolo a una máquina más básica.
+			
+			\subsection{Clase NP}
+				\paragraph{}
+				La clase NP está compuesta por los problemas que tienen un certificado sucinto (también llamado testigo polinómico) para todas las instancias cuya respuesta es un SÍ. La única forma de que tengan un tiempo polinomial es realizando una etapa aleatoria, incluyendo el azar de alguna manera para elegir una posible solución, y entonces en etapas posteriores comprueba si esa solución es correcta. En otras palabras, dada una solución para una cierta instancia, es posible comprobar que es válida en TIME ($n^k$).
+
+
+				\paragraph{Completitud de NP}
+				Para analizar la pregunta P = NP, resulta muy útil el concepto de completitud NP. De manera informal, los problemas de completitud NP son los problemas más "difíciles" en NP en el sentido de que ellos son los que son más probable no se encuentren en P. Problemas NP-difíciles son aquellos para los cuales cualquier problema en NP puede ser reducido en tiempo polinómico. Los problemas de completitud NP son aquellos problemas NP-difícil que se encuentran en NP. Por ejemplo, la versión de problema de decisión del problema del viajante es completamente NP. Así ningún caso de ningún problema en NP puede ser transformado mecánicamente en una parte del problema del vendedor viajero, en tiempo polinómico. Por lo tanto, si el problema del vendedor viajero estuviera contenido en P, entonces P = NP. El problema del vendedor viajero es uno de muchos problemas NP-completos. Si cualquier problema NP-completo se encuentra contenido en P, entonces se verificaría que P = NP. Desafortunadamente, se ha demostrado que muchos problemas importantes son NP-completos y no se conoce la existencia de ningún algoritmo rápido para ellos.
+
+
+		\section{Campos de Aplicación}
+		
+			\paragraph{}
+			Los campos de aplicación de este problema son muy diversos, pero todos ellos relacionados con la organización de tareas. Encontrar la planificación óptima de un conjunto de trabajos divisibles en sub-operaciones "modularizables" en un tiempo razonable mejoraría exponencialmente la productividad. Esto aplicado al mundo empresarial reduciría muchísimo lo costes.
+		
+			\paragraph{}
+			Un claro ejemplo de ello es la planificación de una lavandería, la cual ofrece distintos servicios como lavado, planchado, secado, arreglo de tejidos, etc. los cuales pueden ser combinados entre sí, pero deben mantener un cierto orden de realización. Los trabajos son las peticiones de los clientes, las cuales se realizan en las máquinas que hay en la lavandería. Si fuésemos capaces de encontrar la planificación de uso de las máquinas de forma óptima en un tiempo polinómico esto haría que una gran lavandería redujese tanto el tiempo como los costes de su proceso productivo.
+				
 		\section{Reducción}
 		
 			\paragraph{}
@@ -87,10 +147,7 @@
 			
 			\paragraph{}
 			El método que utilizaremos será reducción polinómica, lo que quiere decir que tendremos que conseguir demostrar que existe un método de la clase P que permita transformar nuestro problema a un problema de la clase NP-Complete. Con esto se consigue que si se consiguiera demostrar que un problema de la clase NP-Complete pertenece también a la clase P, todos los problemas de la clase NP-Complete quedarían sistemáticamente demostrados como pertenecientes a la clase P por transitividad.
-			
-%			\paragraph{}
-%			{\bf Partición}: es un problema NP-completo, que visto como un problema de decisión, consiste en decidir si, dado un multiconjunto (conjunto en el cual cada miembro del mismo tiene asociada una multiplicidad) de números enteros, puede éste ser particionado en dos "mitades" tal que sumando los elementos de cada una, ambas den como resultado la misma suma.
-			
+
 			\subsection{Partición}
 
 				\paragraph{}
@@ -198,6 +255,8 @@
 				\item \href{https://en.wikipedia.org/wiki/Combinatorial_optimization}{Wikipedia: Combinatorial optimization}
 				\item \href{https://en.wikipedia.org/wiki/Disjunctive_graph}{Wikipedia: Disjunctive graph}
 				\item \href{https://en.wikipedia.org/wiki/Schedule_(computer_science)}{Wikipedia: Schedule}
+				\item \href{https://en.wikipedia.org/wiki/P_versus_NP_problem}{Wikipedia: P versus NP problem}
+				\item \href{https://www.lsi.us.es/docs/doctorado/memorias/MemoInvestigIreneBarba.pdf}{Algoritmos de planificación basados en restricciones para la sustitución de componentes defectuosos, Irene Barba Rodríguez}
 
 			\end{itemize}
 
