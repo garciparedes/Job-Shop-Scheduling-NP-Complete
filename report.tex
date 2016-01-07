@@ -65,7 +65,7 @@
 			\subsection{Open Shop, Job Shop y Flow Shop}
 			
 				\paragraph{}
-				Estos problemas tres problemas son muy similares entre si, ya que todos están referidos a la planificación de trabajos en más de una máquina.
+				Estos tres problemas son muy similares entre si, ya que todos están referidos a la planificación de trabajos en más de una máquina.
 				
 				\begin{itemize}
 				
@@ -135,7 +135,10 @@
 				\paragraph{}
 				La clase NP está compuesta por los problemas que tienen un certificado sucinto (también llamado testigo polinómico) para todas las instancias cuya respuesta es un SÍ. La única forma de que tengan un tiempo polinomial es realizando una etapa aleatoria, incluyendo el azar de alguna manera para elegir una posible solución, y entonces en etapas posteriores comprueba si esa solución es correcta. En otras palabras, dada una solución para una cierta instancia, es posible comprobar que es válida en TIME ($n^k$).
 
-
+			\begin{figure}[H]
+						\centering
+						\includegraphics[width=120mm]{res/pspace.png}
+				\end{figure}
 				\paragraph{Completitud de NP}
 				Para analizar la pregunta P = NP, resulta muy útil el concepto de completitud NP. De manera informal, los problemas de completitud NP son los problemas más "difíciles" en NP en el sentido de que ellos son los que son más probable no se encuentren en P. Problemas NP-difíciles son aquellos para los cuales cualquier problema en NP puede ser reducido en tiempo polinómico. Los problemas de completitud NP son aquellos problemas NP-difícil que se encuentran en NP. Por ejemplo, la versión de problema de decisión del problema del viajante es completamente NP. Así ningún caso de ningún problema en NP puede ser transformado mecánicamente en una parte del problema del vendedor viajero, en tiempo polinómico. Por lo tanto, si el problema del vendedor viajero estuviera contenido en P, entonces P = NP. El problema del vendedor viajero es uno de muchos problemas NP-completos. Si cualquier problema NP-completo se encuentra contenido en P, entonces se verificaría que P = NP. Desafortunadamente, se ha demostrado que muchos problemas importantes son NP-completos y no se conoce la existencia de ningún algoritmo rápido para ellos.
 				
@@ -255,6 +258,7 @@
 				\item \href{https://en.wikipedia.org/wiki/Disjunctive_graph}{Wikipedia: Disjunctive graph}
 				\item \href{https://en.wikipedia.org/wiki/Schedule_(computer_science)}{Wikipedia: Schedule}
 				\item \href{https://en.wikipedia.org/wiki/P_versus_NP_problem}{Wikipedia: P versus NP problem}
+				\item {Computers and Intractability: A Guide to the Theory of NPcompleteness, Garey, Johnson}
 				\item \href{https://www.lsi.us.es/docs/doctorado/memorias/MemoInvestigIreneBarba.pdf}{Algoritmos de planificación basados en restricciones para la sustitución de componentes defectuosos, Irene Barba Rodríguez}
 
 			\end{itemize}
